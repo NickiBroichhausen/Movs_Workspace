@@ -4,6 +4,7 @@ import de.thBingen.U5.RestUebung.ports.in.RestPort;
 import de.thBingen.U5.RestUebung.ports.in.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @org.springframework.web.bind.annotation.RestController
@@ -21,13 +22,16 @@ public class RestController {
     }
 
     @PostMapping(value="/users", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void addUser(@RequestBody User user) {
-       restPort.postUser(user);
+    public ResponseEntity addUser(@RequestBody User user) {
+       boolean success = restPort.postUser(user);
+        return success==true?ResponseEntity.ok(user.getId()):ResponseEntity.badRequest().build();
     }
+    //id's might be used multiple times
 
     @DeleteMapping(value = "/users/{id}")
-    public void deleteUser(@PathVariable int id){
-        restPort.deleteUser(id);
+    public ResponseEntity deleteUser(@PathVariable int id){
+        boolean success = restPort.deleteUser(id);
+        return success==true?ResponseEntity.ok(id):ResponseEntity.badRequest().build();
     }
 
 
