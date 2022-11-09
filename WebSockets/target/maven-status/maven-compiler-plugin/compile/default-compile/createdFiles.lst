@@ -1,0 +1,13 @@
+de\thbingen\MyRESTbasedMS\SwaggerConfig.class
+de\thbingen\MyRESTbasedMS\ports\out\Operation.class
+de\thbingen\MyRESTbasedMS\service\model\User.class
+de\thbingen\MyRESTbasedMS\ports\out\MessageRepositoryPort.class
+de\thbingen\MyRESTbasedMS\service\MyRESTbasedMS.class
+de\thbingen\MyRESTbasedMS\adapters\out\filesystem\UserCsvUtils.class
+de\thbingen\MyRESTbasedMS\ports\out\UpdatesNotificationPort.class
+de\thbingen\MyRESTbasedMS\adapters\in\MyRESTController.class
+de\thbingen\MyRESTbasedMS\ports\in\MyRESTbasedMSPort.class
+de\thbingen\MyRESTbasedMS\adapters\out\filesystem\CsvStorage.class
+de\thbingen\MyRESTbasedMS\adapters\out\WebsocketNotification.class
+de\thbingen\MyRESTbasedMS\MyRESTbasedMSApplication.class
+de\thbingen\MyRESTbasedMS\WebSocketConfig.class
