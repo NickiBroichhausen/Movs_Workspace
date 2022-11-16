@@ -14,8 +14,9 @@ public class MessageAdapter implements MessagePort {
 
 
     @Override
-    @RabbitListener(queues = "#{messageQueue}")
+    @RabbitListener(queues = "#{myQueue.name}")
     public void recieve(String message) {
+        System.out.println("Recieven Message: " + message);
         out.notify(message);
     }
 }

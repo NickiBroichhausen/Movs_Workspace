@@ -16,6 +16,12 @@ public class MessagingConfig {
   }
 
   @Bean
+  public DirectExchange myExchange(){
+    return new DirectExchange("ExchangeToQueue");
+  }
+
+
+  @Bean
   public Binding myBinding(DirectExchange exchange, Queue queue) {
     return BindingBuilder.bind(queue).to(exchange).with("REST");
 

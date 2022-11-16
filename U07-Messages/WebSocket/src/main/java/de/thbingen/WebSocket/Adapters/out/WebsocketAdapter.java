@@ -23,6 +23,7 @@ public class WebsocketAdapter extends TextWebSocketHandler implements WebsocketP
 
     @Override
     public void notify(String message) {
+        System.out.println("Sending to websocket: " + message);
         for (WebSocketSession webSocketSession : sessions) {
             try {
                 webSocketSession.sendMessage(new TextMessage(message));
