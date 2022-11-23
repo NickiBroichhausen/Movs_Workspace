@@ -1,0 +1,43 @@
+
+services:
+  rabbitmqbroker:
+    build:
+      context: .
+      dockerfile:
+        rabbitmq.Dockerfile
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      my_network:
+
+  websocket:
+    build:
+      context: .
+      dockerfile:
+        websocket.Dockerfile
+    ports:
+      - 5667:5667
+    environment:
+      - spring_rabbitmq_host=rabbitmqbroker
+    depends_on:
+      - rabbitmqbroker
+    networks:
+      my_network:
+
+  restms:
+    build:
+      context: .
+      dockerfile:
+        restmicros.Dockerfile
+    ports:
+      - 5666:5666
+    environment:
+      - spring_rabbitmq_host=rabbitmqbroker
+    depends_on:
+      - rabbitmqbroker
+    networks:
+      my_network:
+
+networks:
+  my_network:
